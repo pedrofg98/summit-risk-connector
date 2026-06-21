@@ -37,9 +37,9 @@ export function Speakers() {
                   <div className="flex h-full flex-col gap-4 p-5">
                     {/* avatar */}
                     <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-gold/15">
-                      {isSilvino ? (
+                      {s.photo ? (
                         <img
-                          src={PHOTOS[3]}
+                          src={s.photo}
                           alt={s.name}
                           className="h-full w-full object-cover object-top"
                           loading="lazy"
