@@ -156,10 +156,20 @@ export const SCHEDULE: Talk[] = [
   },
 ];
 
+import silvinoPhoto from "@/assets/speakers/silvino.webp.asset.json";
+import milenaPhoto from "@/assets/speakers/milena.webp.asset.json";
+import leoPhoto from "@/assets/speakers/leo.webp.asset.json";
+import felipePhoto from "@/assets/speakers/felipe.webp.asset.json";
+import raphaelPhoto from "@/assets/speakers/raphael.webp.asset.json";
+import ricardoPhoto from "@/assets/speakers/ricardo.webp.asset.json";
+import aureaPhoto from "@/assets/speakers/aurea.webp.asset.json";
+import pabloPhoto from "@/assets/speakers/pablo.webp.asset.json";
+
 export type Speaker = {
   name: string;
   role: string;
   bio: string;
+  photo?: string;
 };
 
 export const SPEAKERS: Speaker[] = [
@@ -167,41 +177,49 @@ export const SPEAKERS: Speaker[] = [
     name: "Silvino Santos",
     role: "Idealizador · Criador do Método R.I.S.C.O.",
     bio: "Mestre e Doutor em Psicologia, especialista em comportamento humano, cultura organizacional e riscos psicossociais. Criador da Formação NR1 Sem Risco.",
+    photo: silvinoPhoto.url,
   },
   {
     name: "Milena Mendonça",
     role: "Fundadora da AliaRH · LinkedIn Top Voice",
     bio: "Psicóloga Organizacional e do Trabalho com 20+ anos. Consultora e mentora de líderes e profissionais de RH.",
+    photo: milenaPhoto.url,
   },
   {
     name: "Léo Kaufmann",
     role: "Diretor de Conteúdo e Curador do RH Summit",
     bio: "Uma das vozes mais provocadoras do RH brasileiro. Conecta liderança, cultura e resultados sem romantização.",
+    photo: leoPhoto.url,
   },
   {
     name: "Felipe dos Anjos",
     role: "Head de DEI & Employer Branding na Numen",
     bio: "Empreendedor e uma das vozes mais influentes do LinkedIn Brasil. Referência em inclusão e cultura organizacional.",
+    photo: felipePhoto.url,
   },
   {
     name: "Rapha Rezende",
     role: "Advogado trabalhista · LinkedIn Top Voice 2024",
     bio: "Executivo de RH e palestrante sobre Saúde Mental, Bem-estar e NR-1. 3x Top 100 Influenciadores de RH.",
+    photo: raphaelPhoto.url,
   },
   {
     name: "Ricardo Queiroz",
     role: "CEO da Flora Insights",
     bio: "Pioneiro em diagnóstico de riscos psicossociais, com 4.000+ diagnósticos e metodologia validada pela IAUPE.",
+    photo: ricardoPhoto.url,
   },
   {
     name: "Áurea Santos",
     role: "Fundadora da Escola de RHs e Consultoria Luminy",
     bio: "30+ anos em desenvolvimento humano. Passagens por Coca-Cola, PepsiCo e Peugeot. Mentora de RH do Ano 2026.",
+    photo: aureaPhoto.url,
   },
   {
     name: "Pablo Funchal",
     role: "CEO da Fluxus",
     bio: "Especialista em desenvolvimento de lideranças. Engenheiro e mestre pela UFSCar, professor convidado em MBAs da UFSCar e USP.",
+    photo: pabloPhoto.url,
   },
 ];
 

@@ -1,7 +1,7 @@
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { SectionHeading } from "./SectionHeading";
-import { SPEAKERS, PHOTOS } from "@/data/summit";
+import { SPEAKERS } from "@/data/summit";
 
 function initials(name: string) {
   return name
@@ -37,9 +37,9 @@ export function Speakers() {
                   <div className="flex h-full flex-col gap-4 p-5">
                     {/* avatar */}
                     <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-gold/15">
-                      {isSilvino ? (
+                      {s.photo ? (
                         <img
-                          src={PHOTOS[3]}
+                          src={s.photo}
                           alt={s.name}
                           className="h-full w-full object-cover object-top"
                           loading="lazy"
@@ -75,9 +75,6 @@ export function Speakers() {
           })}
         </div>
 
-        <p className="text-center text-xs text-muted-foreground">
-          * Fotos dos palestrantes serão adicionadas em breve.
-        </p>
       </div>
     </section>
   );
