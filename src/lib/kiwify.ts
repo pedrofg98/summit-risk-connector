@@ -41,7 +41,7 @@ export function loadStoredLead(): Partial<Lead> | null {
 export function saveStoredLead(lead: Lead): void {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(lead));
+    window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(lead));
   } catch {
     // ignore
   }
