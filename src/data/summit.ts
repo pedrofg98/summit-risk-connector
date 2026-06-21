@@ -296,9 +296,9 @@ import depoimento6 from "@/assets/depoimento-6.webp.asset.json";
 
 export const TESTIMONIALS = [
   depoimento1.url,
-  depoimento2.url,
+  depoimento6.url,
   depoimento3.url,
   depoimento4.url,
   depoimento5.url,
-  depoimento6.url,
+  depoimento2.url,
 ];
