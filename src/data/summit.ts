@@ -205,51 +205,85 @@ export const SPEAKERS: Speaker[] = [
   },
 ];
 
+export type LoteStatus = "active" | "next" | "soon" | "sold";
+
 export type Lote = {
   name: string;
   price: string;
-  period: string;
+  /** Datas internas (não renderizadas) — usadas para troca automática de lote. */
+  startISO: string;
+  endISO: string;
   link: string;
-  status: "active" | "next" | "soon" | "sold";
 };
 
+/** Fonte única dos lotes. Status é computado em runtime via getLotesWithStatus(). */
 export const LOTES: Lote[] = [
   {
     name: "Lote 0",
-    price: "27",
-    period: "",
+    price: "29",
+    startISO: "2026-06-22T00:00:00-03:00",
+    endISO: "2026-07-06T23:59:59-03:00",
     link: "https://pay.kiwify.com.br/q6yZ91A",
-    status: "active",
   },
   {
     name: "Lote 1",
-    price: "37",
-    period: "",
+    price: "49",
+    startISO: "2026-07-07T00:00:00-03:00",
+    endISO: "2026-07-20T23:59:59-03:00",
     link: "https://pay.kiwify.com.br/U96pbFV",
-    status: "next",
   },
   {
     name: "Lote 2",
-    price: "47",
-    period: "",
+    price: "79",
+    startISO: "2026-07-21T00:00:00-03:00",
+    endISO: "2026-07-27T23:59:59-03:00",
     link: "https://pay.kiwify.com.br/sNHxiAL",
-    status: "soon",
   },
   {
     name: "Lote 3",
-    price: "57",
-    period: "",
+    price: "99",
+    startISO: "2026-07-28T00:00:00-03:00",
+    endISO: "2026-08-07T23:59:59-03:00",
     link: "https://pay.kiwify.com.br/jNsOq3X",
-    status: "soon",
-  },
-  {
-    name: "Lote 4",
-    price: "67",
-    period: "",
-    link: "https://pay.kiwify.com.br/jNsOq3X",
-    status: "soon",
   },
 ];
+
+export type LoteWithStatus = Lote & { status: LoteStatus };
+
+/**
+ * Calcula o status de cada lote em função da data atual:
+ * - antes de qualquer lote começar: o primeiro lote fica `active` (fallback).
+ * - lote cuja janela contém `now`: `active`.
+ * - lotes anteriores ao ativo: `sold`.
+ * - lotes posteriores: `soon` (o próximo da fila).
+ * - depois do último terminar: todos `sold` e o último marcado também como `sold`.
+ */
+export function getLotesWithStatus(now: Date = new Date()): LoteWithStatus[] {
+  const t = now.getTime();
+  const ends = LOTES.map((l) => new Date(l.endISO).getTime());
+  const starts = LOTES.map((l) => new Date(l.startISO).getTime());
+
+  // Antes de tudo começar → primeiro lote ativo
+  if (t < starts[0]) {
+    return LOTES.map((l, i) => ({ ...l, status: i === 0 ? "active" : "soon" }));
+  }
+  // Encontra primeiro lote ainda não esgotado
+  const activeIdx = ends.findIndex((end) => t <= end);
+  if (activeIdx === -1) {
+    // Todos terminaram
+    return LOTES.map((l) => ({ ...l, status: "sold" as LoteStatus }));
+  }
+  return LOTES.map((l, i) => ({
+    ...l,
+    status: i < activeIdx ? "sold" : i === activeIdx ? "active" : "soon",
+  }));
+}
+
+/** Retorna o lote ativo no momento (fallback: primeiro lote). */
+export function getActiveLote(now: Date = new Date()): LoteWithStatus {
+  const list = getLotesWithStatus(now);
+  return list.find((l) => l.status === "active") ?? list[0];
+}
 
 export const FAQ = [
   {
