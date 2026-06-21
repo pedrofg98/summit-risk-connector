@@ -3,9 +3,9 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { SectionHeading } from "./SectionHeading";
 import { CtaLink } from "./CtaLink";
-import { LEARN, EVENT, LOTES } from "@/data/summit";
+import { LEARN, EVENT, getActiveLote } from "@/data/summit";
 
-const ACTIVE = LOTES.find((l) => l.status === "active") ?? LOTES[0];
+const ACTIVE = getActiveLote();
 
 export function Learn() {
   return (

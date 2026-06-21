@@ -3,11 +3,13 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 import { Meteors } from "@/components/magicui/meteors";
 import { SectionHeading } from "./SectionHeading";
 import { CtaLink } from "./CtaLink";
-import { LOTES } from "@/data/summit";
+import { getLotesWithStatus } from "@/data/summit";
 import { cn } from "@/lib/utils";
 
 export function Pricing() {
-  const active = LOTES.find((l) => l.status === "active") ?? LOTES[0];
+  const lotes = getLotesWithStatus();
+  const active = lotes.find((l) => l.status === "active") ?? lotes[0];
+
 
   return (
     <section
@@ -30,8 +32,8 @@ export function Pricing() {
         {/* barra de lotes lado a lado */}
         <BlurFade>
           <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-gold/25 bg-card/70 gold-ring">
-            <div className="grid grid-cols-5">
-              {LOTES.map((l, i) => {
+            <div className="grid grid-cols-4">
+              {lotes.map((l, i) => {
                 const isActive = l.status === "active";
                 const isSold = l.status === "sold";
                 return (
