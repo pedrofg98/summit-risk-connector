@@ -32,8 +32,8 @@ export function Pricing() {
         {/* barra de lotes lado a lado */}
         <BlurFade>
           <div className="mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-gold/25 bg-card/70 gold-ring">
-            <div className="grid grid-cols-5">
-              {LOTES.map((l, i) => {
+            <div className="grid grid-cols-4">
+              {lotes.map((l, i) => {
                 const isActive = l.status === "active";
                 const isSold = l.status === "sold";
                 return (
