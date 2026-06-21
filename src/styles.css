@@ -49,6 +49,12 @@
   --color-gold-deep: #B8946E;
   --color-gold-ink: #0A0A0A;
 
+  --color-cta-green: #22c55e;
+  --color-cta-green-light: #4ade80;
+  --color-cta-green-dark: #16a34a;
+  --color-cta-ink: #052e16;
+  --color-lime-active: #a3e635;
+
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Archivo", "Inter", ui-sans-serif, system-ui, sans-serif;
 
