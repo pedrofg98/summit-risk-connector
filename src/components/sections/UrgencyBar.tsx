@@ -1,9 +1,9 @@
 import { Flame } from "lucide-react";
-import { LOTES } from "@/data/summit";
+import { getActiveLote } from "@/data/summit";
 
 /** Barra fina de urgência fixa no topo — mostra o lote ativo. */
 export function UrgencyBar() {
-  const active = LOTES.find((l) => l.status === "active") ?? LOTES[0];
+  const active = getActiveLote();
   return (
     <div className="group relative z-50 block w-full overflow-hidden border-b border-[var(--color-cta-green)]/25 bg-gradient-to-r from-black via-[#0c1f12] to-black">
       <div className="shell flex items-center justify-center gap-2 py-2 text-center text-[0.72rem] font-semibold uppercase tracking-[0.16em] sm:text-xs">
