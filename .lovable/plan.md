@@ -1,10 +1,8 @@
-### Objetivo
-Remover a contagem regressiva "FALTAM Xd Xh" da **UrgencyBar** no topo da página.
+Remover o comportamento de link da barra de urgência (UrgencyBar) no topo da página.
 
-### Arquivo
-- `src/components/sections/UrgencyBar.tsx`
+## O que será feito
+- No arquivo `src/components/sections/UrgencyBar.tsx`, substituir a tag `<a>` por `<div>`, removendo os atributos `href`, `target` e `rel`.
+- Preservar todos os estilos visuais (gradiente, animação de brilho, texto, ícone Flame).
 
-### Mudanças
-1. Remover o texto/cápsula que exibe `faltam {left}`.
-2. Remover o `useState`, `useEffect` e lógica de timer associada, já que não haverá mais contagem.
-3. Manter o restante da barra intacta (texto do lote, link, animação de brilho).
+## Resultado esperado
+A barra superior continua visível e com a mesma aparência, mas não é mais clicável.
