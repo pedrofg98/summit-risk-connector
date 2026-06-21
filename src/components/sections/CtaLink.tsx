@@ -7,15 +7,17 @@ interface CtaLinkProps {
   children: React.ReactNode;
   className?: string;
   size?: "lg" | "xl";
+  lote?: string;
+  preco?: string;
 }
 
 /** CTA dourado: abre o modal de pré-cadastro e em seguida redireciona ao checkout Kiwify com prefill. */
-export function CtaLink({ href, children, className, size = "xl" }: CtaLinkProps) {
+export function CtaLink({ href, children, className, size = "xl", lote, preco }: CtaLinkProps) {
   const { openCheckout } = useCheckout();
   return (
     <button
       type="button"
-      onClick={() => openCheckout(href)}
+      onClick={() => openCheckout(href, { lote, preco })}
       className={cn(
         "group relative isolate inline-flex items-center justify-center gap-2 overflow-hidden rounded-full text-gold-ink",
         "font-display font-extrabold uppercase tracking-[0.04em]",
