@@ -1,9 +1,9 @@
 import { Check, Mountain } from "lucide-react";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { CtaLink } from "./CtaLink";
-import { EVENT, PHOTOS, LEARN, LOTES } from "@/data/summit";
+import { EVENT, PHOTOS, LEARN, getActiveLote } from "@/data/summit";
 
-const ACTIVE = LOTES.find((l) => l.status === "active") ?? LOTES[0];
+const ACTIVE = getActiveLote();
 
 export function Hero() {
   return (

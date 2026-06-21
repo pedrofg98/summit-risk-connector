@@ -2,9 +2,9 @@ import { Instagram } from "lucide-react";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { LightRays } from "@/components/magicui/light-rays";
 import { CtaLink } from "./CtaLink";
-import { EVENT, LOTES } from "@/data/summit";
+import { EVENT, getActiveLote } from "@/data/summit";
 
-const ACTIVE = LOTES.find((l) => l.status === "active") ?? LOTES[0];
+const ACTIVE = getActiveLote();
 
 export function Footer() {
   return (

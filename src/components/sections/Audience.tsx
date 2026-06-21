@@ -2,9 +2,9 @@ import { UserCheck } from "lucide-react";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { SectionHeading } from "./SectionHeading";
 import { CtaLink } from "./CtaLink";
-import { AUDIENCE, EVENT, LOTES } from "@/data/summit";
+import { AUDIENCE, EVENT, getActiveLote } from "@/data/summit";
 
-const ACTIVE = LOTES.find((l) => l.status === "active") ?? LOTES[0];
+const ACTIVE = getActiveLote();
 
 export function Audience() {
   return (
