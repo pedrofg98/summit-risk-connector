@@ -21,6 +21,17 @@ export function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-background to-transparent" />
       </div>
 
+      {/* fundo mobile */}
+      <div className="pointer-events-none absolute inset-0 lg:hidden">
+        <img
+          src={bgFundoMobile.url}
+          alt=""
+          aria-hidden
+          className="h-full w-full object-cover object-bottom"
+          loading="eager"
+        />
+      </div>
+
       {/* ambiência */}
       <div className="absolute inset-0 bg-grid-faint opacity-30" />
       <div className="absolute -left-40 -top-20 h-[520px] w-[520px] rounded-full bg-gold/10 blur-[130px]" />
