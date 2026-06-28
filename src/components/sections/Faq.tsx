@@ -6,7 +6,10 @@ import {
 } from "@/components/ui/accordion";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { SectionHeading } from "./SectionHeading";
-import { FAQ } from "@/data/summit";
+import { CtaLink } from "./CtaLink";
+import { EVENT, FAQ, getActiveLote } from "@/data/summit";
+
+const ACTIVE = getActiveLote();
 
 export function Faq() {
   return (
