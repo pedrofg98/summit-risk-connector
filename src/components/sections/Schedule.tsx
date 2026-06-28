@@ -67,7 +67,6 @@ export function Schedule() {
             ))}
           </div>
         </div>
-        </div>
 
         <BlurFade>
           <div className="flex justify-center pt-2">
