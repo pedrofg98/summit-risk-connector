@@ -1,7 +1,10 @@
 import { BlurFade } from "@/components/magicui/blur-fade";
 import { MagicCard } from "@/components/magicui/magic-card";
 import { SectionHeading } from "./SectionHeading";
-import { SPEAKERS } from "@/data/summit";
+import { CtaLink } from "./CtaLink";
+import { EVENT, SPEAKERS, getActiveLote } from "@/data/summit";
+
+const ACTIVE = getActiveLote();
 
 function initials(name: string) {
   return name
