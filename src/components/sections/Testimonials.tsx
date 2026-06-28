@@ -57,6 +57,14 @@ export function Testimonials() {
             ))}
           </div>
         </BlurFade>
+
+        <BlurFade>
+          <div className="flex justify-center pt-2">
+            <CtaLink href={EVENT.checkout} lote={ACTIVE.name} preco={`R$${ACTIVE.price}`}>
+              Garantir minha vaga por R${ACTIVE.price}
+            </CtaLink>
+          </div>
+        </BlurFade>
       </div>
 
       {selected && (
